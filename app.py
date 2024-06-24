@@ -90,7 +90,7 @@ def suggest():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-  try:
+ 
         data = request.json
         input_text = data['text']
         
@@ -104,11 +104,6 @@ def predict():
             'input_text': input_text,
             'predicted_emoji': predicted_emoji
         })
-    except KeyError as ke:
-        app.logger.error(f"KeyError in /predict endpoint: {str(ke)}")
-        return jsonify({"error": "KeyError: Missing 'text' key in request JSON"}), 400
-    except Exception as e:
-        app.logger.error(f"Error in /predict endpoint: {str(e)}")
-        return jsonify({"error": "An error occurred"}), 500     
+       
 if __name__ == '__main__':
     app.run(debug=True)
