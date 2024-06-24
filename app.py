@@ -91,7 +91,7 @@ def suggest():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
-    print(data)
+   
     input_text = data['text']
     
     X_input = preprocess_input_text(input_text, embedding_matrix)
